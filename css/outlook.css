@@ -1,0 +1,71 @@
+/* 設置半透明背景 */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url("../img/oper.png");
+    background-repeat: repeat;
+    background-attachment: local;
+    opacity: 0.6;
+}
+
+/* 輸出欄的格式調整 */
+div {
+    background-color: ghostwhite;
+    border: 0.5vw solid palegreen;
+    border-bottom: 0.5vw solid greenyellow;
+    box-sizing: border-box;
+    position: relative;
+    top: 13vw;
+    left: 23%;
+    width: 50%;
+    height: 5vw;
+    font-size: 3vw;
+    text-align: right;
+    border-top-left-radius: 1vw;
+    border-top-right-radius: 1vw;
+}
+
+/* 移到輸出欄有陰影提醒，雖然沒其他功能QQ */
+div:hover {
+    box-shadow: 0 0 1vw gray;
+}
+
+/* 整個表格的格式調整 */
+table {
+    border-right: 0.5vw solid palegreen;
+    border-left: 0.5vw solid palegreen;
+    border-bottom: 0.5vw solid palegreen;
+    width: 50%;
+    position: relative;
+    left: 23%;
+    margin: 13vw 0;
+    background-color: rgba(211, 211, 211, 0.637);
+    /* border-collapse: collapse; */
+}
+
+/* 每一格都通用的屬性打在這 */
+td {
+    font-family: fantasy;
+    width: 25%;
+    font-size: 3vw;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* 數字CLASS的格式 */
+.number {
+    border-top: 0.3vw solid turquoise;
+    border-bottom: 0.3vw solid turquoise;
+}
+
+/* 特殊功能CLASS的格式 */
+.spec,
+.operator {
+    border-top: 0.3vw solid violet;
+    border-bottom: 0.3vw solid violet;
+}

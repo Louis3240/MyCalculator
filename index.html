@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="img/operIcon.png">
+    <meta charset="UTF-8">
+    <title>My Calculator</title>
+    <link rel="stylesheet" href="css/outlook.css">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/function.js"></script>
+</head>
+
+<!-- 最上面為輸出結果 -->
+<div id="outcome">我是輸出結果</div>
+
+
+<!-- 用table排按鈕版 -->
+<table>
+    <tr>
+        <!-- 將特殊刪除鍵、數字和運算子歸類在不同CLASS -->
+        <!-- 請原諒我按下去的事件還是用JavaScript寫 -->
+        <td class="spec" id='CE' onclick="operate(this.id)">CE</td>
+        <td class="spec" id='C' onclick="operate(this.id)">C</td>
+        <td class="spec" id='backspace' onclick="operate(this.id)"><img src="img/backspace.png" alt="" width="30%"></td>
+        <td class="operator" id='÷' onclick="operate(this.id)">÷</td>
+    </tr>
+    <tr>
+        <td class="number" id="7" onclick="operate(this.id)">7</td>
+        <td class="number" id="8" onclick="operate(this.id)">8</td>
+        <td class="number" id="9" onclick="operate(this.id)">9</td>
+        <td class="operator" id='×' onclick="operate(this.id)">×</td>
+    </tr>
+    <tr>
+        <td class="number" id="6" onclick="operate(this.id)">6</td>
+        <td class="number" id="5" onclick="operate(this.id)">5</td>
+        <td class="number" id="4" onclick="operate(this.id)">4</td>
+        <td class="operator" id='-' onclick="operate(this.id)">-</td>
+    </tr>
+    <tr>
+        <td class="number" id="3" onclick="operate(this.id)">3</td>
+        <td class="number" id="2" onclick="operate(this.id)">2</td>
+        <td class="number" id="1" onclick="operate(this.id)">1</td>
+        <td class="operator" id='+' onclick="operate(this.id)">+</td>
+    </tr>
+    <tr>
+        <td class="spec" id="±" onclick="operate(this.id)">±</td>
+        <td class="number" id="0" onclick="operate(this.id)">0</td>
+        <td class="spec" id="." onclick="operate(this.id)">.</td>
+        <td class="operator" id='equal' onclick="result()">=</td>
+    </tr>
+
+</table>
+
+<!-- 我雖然有包JS出去，但不知道為啥JQuery包出去不能順利引用所以放這 -->
+<script>
+    // each真心好用。這邊希望滑鼠移到每一格都有對應的呈現
+    $("td").each(function () {
+        // 數字CLASS的滑鼠事件，包含了移過去、按下去和彈起來跟移開，希冀有反饋的感覺
+        $(".number").mouseover(function () {
+            $(this).css("background-color", "gray");
+        })
+
+        $(".number").mousedown(function () {
+            $(this).css("background", "radial-gradient(circle,white,turquoise)");
+        })
+
+        $(".number").mouseup(function () {
+            $(this).css("background", "");
+            $(this).css("background-color", "gray");
+        })
+        // 由於移開後的效果皆一樣，就直接用this囉
+        $(this).mouseout(function () {
+            $(this).css("background", "");
+            $(this).css("background-color", "rgba(211, 211, 211, 0.637)");
+        })
+
+        // 這邊就是特殊功能的滑鼠事件
+        $(".spec").mouseover(function () {
+            $(this).css("background-color", "gray");
+        })
+
+        $(".spec").mousedown(function () {
+            $(this).css("background", "radial-gradient(circle,white,violet)");
+        })
+
+        $(".spec").mouseup(function () {
+            $(this).css("background", "");
+            $(this).css("background-color", "gray");
+        })
+
+        // 這邊則是運算子的，稍有不同
+        $(".operator").mouseover(function () {
+            $(this).css("background-color", "hotpink");
+        })
+
+        $(".operator").mousedown(function () {
+            $(this).css("background", "radial-gradient(circle,white,violet)");
+        })
+
+        $(".operator").mouseup(function () {
+            $(this).css("background", "");
+            $(this).css("background-color", "hotpink");
+        })
+
+    })
+
+
+
+</script>
+
+
+
+<!-- <p><a href="https://www.desmos.com/scientific" target="_blank">參考網路上面的計算機</a></!-->
+</body>
+
+</html>
